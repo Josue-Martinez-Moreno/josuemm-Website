@@ -1,0 +1,23 @@
+.frontpage .grin_top{border-top: 20vh solid #0B4F7B;
+	border-left: 0px solid transparent;
+	border-right: 30vw solid transparent;
+	height: 0;
+	width: 23vw;}
+.frontpage .grin_top::afternth-last-child(1){
+	height: 10vh;
+	width: 23vw;}
+
+
+.frontpage .grin_top{margin: 50px 0;
+   position: relative;
+   display: block;
+   color: red;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid red;
+   border-left:   100px solid transparent;
+   -moz-transform:    rotate(35deg);
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   -o-transform:      rotate(35deg);}
