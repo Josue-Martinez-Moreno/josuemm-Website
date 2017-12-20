@@ -269,7 +269,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     var randominit=randomFromTo(0, 3)
-    console.log(randominit)
     if (randominit==0){ 
         $('[id="squarediv"]').animate({opacity: 1})
          $('.cresearch').css({'height':66.66+'vh','width':66.66+'vw','float':"left"});
@@ -283,7 +282,7 @@ $(document).ready(function(){
          $('.cresearch').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.oresearch').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.publications').css({'height':66.66+'vh','width':66.66+'vw'});
-         $('.teaching').css({'top':-33.33+'vh','height':50+'vh','width':33.33+'vw'});
+         $('.teaching').css({'top':-50+'vh','height':50+'vh','width':33.33+'vw'});
          $('.cv').css({'top':-50+'vh','height':50+'vh','width':33.33+'vw','float':"right"});
     }
     else if (randominit==2){
@@ -302,4 +301,19 @@ $(document).ready(function(){
          $('.teaching').css({'height':33.33+'vh','width':50+'vw'});
          $('.cv').css({'height':33.33+'vh','width':50+'vw'});
     }
+});
+
+$(document).ready(function(){
+    var randominit=randomFromTo(0, 3)
+    tools_disp
+})
+
+function randaxis(){
+    var axisavailable=["x","y"];
+    return axisavailable[randomFromTo(0, 1)]
+}
+
+$('[id="squarediv"]').flip({
+    axis: 'rand',
+    trigger: 'click'
 });

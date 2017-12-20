@@ -86,15 +86,27 @@ li{list-style: none;}
 .inbrackets_title{width:100%;position: relative;top:0px;margin:auto;left:0;right: 0;text-align: center;font-size: 3vw}
 
 .content{font-size:15px;font-size-adjust: auto; padding-left:5vh;padding-right:5vh;padding-top:0vh}
-.content_research{height:100vh;width:100vw;z-index:0}
+.content_research{height:100vh;width:100vw;z-index:0;background-color: black}
 
 #squarediv{position:relative;display:inline-block;padding:0;margin:0;opacity:0}
+.front img{width:100%;height:100%; object-fit: cover}
+.front iframe { width: 100%; height: 100%;list-style: none;border-style:none;pointer-events: none;object-fit: cover}
 
-.cresearch{background-color: greenyellow;}
-.oresearch{background-color: brown;}
-.teaching{background-color: cyan;}
-.publications{background-color: cadetblue;}
-.cv{background-color: pink;}
+
+.front, .back, .other-front, .other-back {position: relative;max-height:100%;min-height:100%;border: 0.1vw white solid;display: table;}
+.front, .other-front {background-color: white;}
+.back, .other-back {background-color: rgba(255,255,255,0.5);}
+
+.paperspadding{padding:10px;display: table-cell;vertical-align: middle;}
+
+.paperslist ul{display: inline-block;vertical-align: middle;line-height: normal;}
+.paperslist li{list-style: none;display: table-row;font-size:18;color:#0F61A3;font-weight: 500;}
+
+.paperslist li p{font-size:16;color:gray;font-weight: 200}
+.paperslist .myname{font-weight: 500}
+
+.paperslist li::before {content: "•";display: table-cell;text-align: right;padding-right: .3em;}
+
 
 .content_media{height:100vh;width:100vw;z-index:0;background-color: black}
 
@@ -141,3 +153,4 @@ video{width: 100%;position: absolute;z-index:0;min-width: 100%; min-height: 100%
 .footnote span{width:33.33%;float: left;color:white;text-align: center}
 .footnote img{height:100%;margin:0;margin-left: 10px;margin-right:10px}
 .footnote div{height:75%;text-align: center;margin:0.5vh;vertical-align: middle;position:relative}
+
