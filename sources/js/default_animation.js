@@ -66,7 +66,6 @@ document.addEventListener('mousemove', function(event) {
                 $("#menu ul li").eq(1).css({transform: 'rotate(' + -45*percent + 'deg)',background: '#fff'});
             }
             else{
-                console.log('lalalala')
                 $("#menu ul li").eq(0).css({transform: 'rotate(' + 45*percent + 'deg)', background:   '#5DADE2'});
                 $("#menu ul li").eq(1).css({transform: 'rotate(' + -45*percent + 'deg)',background: '#5DADE2'});
                 document.getElementById("menu_content").style.boxShadow = "0px 0px 30px gray"
@@ -156,12 +155,12 @@ function moveRandom(obj) {
     var bHeight = obj.height();
 	var bWidth = obj.width();
 			
-	maxY = cPos.top + cHeight + pad;
-    maxX = cPos.left + cWidth*0.7 - pad;
+	maxY = cPos.top + cHeight*0.9 + pad;
+    maxX = cPos.left + cWidth*1 - pad;
 			
-    minY = divHeight*0.7 - cHeight*2;
-	minX = cPos.left + pad - bWidth;
-			
+    minY = -50;
+	minX = cPos.left + pad;
+    
     newY = randomFromTo(minY, maxY);
 	newX = randomFromTo(minX, maxX);
     obj.animate({
@@ -213,57 +212,26 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-var check=true
-
-$('[id="expandible"]').click(function(){
-    if (check==true){
-        $(this).addClass("full_canvas")
-        $(".bellow_page").css( {"zIndex": 0})
-        $(".fullframe,.page").css( {"zIndex": -10})
-        $("#media_disp").css( {"zIndex": 1})
-        $("#media_disp .fullframe").css( {"zIndex": 1})
-        $('html, body').css({overflow: 'hidden'})
-        check=false
-    }
-    else{
-        $(this).removeClass("full_canvas")
-        $(".bellow_page").css( {"zIndex": 2})
-        $(".fullframe,.page").css( {"zIndex": 1})
-        $("#media_disp .fullframe").css( {"zIndex": 1})
-        $('html, body').css({overflow: 'auto'})
-        $('.content_blog').css({overflow: 'auto'})
-        check=true
-    } 
-});
-});
-
-
-
-$.getJSON( "/sources/ajax/blog_content.json", function( data ) {
-    var titles = [];
-    var blogcont = [];
-    var counter=0
-    $.each( data, function( key, val ) {
-        titles = "<div id='blog_selector' name='" + key + "'>" + "<div>"+ val["Title"] + "</div>" + "<p>" + val["Date"] + "</p></div>";
-        if (counter==0){
-            blogcont = val["Content"];
-            counter = 1 
+    var check=true
+    $('[id="expandible"]').click(function(){
+        if (check==true){
+            $(this).addClass("full_canvas")
+            $(".bellow_page").css( {"zIndex": 0})
+            $(".fullframe,.page").css( {"zIndex": -10})
+            $("#media_disp").css( {"zIndex": 1})
+            $("#media_disp .fullframe").css( {"zIndex": 1})
+            $('html, body').css({overflow: 'hidden'})
+            check=false
         }
         else{
-            blogcont=''
-        }
-        $(".left_column").append(titles)
-        $(".content_blog").append(blogcont)
-    });
-});
-
-$(document).ready(function(){
-    var blog2dispay=[]
-    $('[id="blog_selector"]').click(function(){
-        blog2dispay=$(this).attr('name')
-        $.getJSON( "/sources/ajax/blog_content.json", function( data ) {
-            $(".content_blog").html(data[blog2dispay]["Content"])
-        });
+            $(this).removeClass("full_canvas")
+            $(".bellow_page").css( {"zIndex": 2})
+            $(".fullframe,.page").css( {"zIndex": 1})
+            $("#media_disp .fullframe").css( {"zIndex": 1})
+            $('html, body').css({overflow: 'auto'})
+            $('.content_blog').css({overflow: 'auto'})
+            check=true
+        } 
     });
 });
 
@@ -271,7 +239,8 @@ $(document).ready(function(){
     var randominit=randomFromTo(0, 3)
     if (randominit==0){ 
         $('[id="squarediv"]').animate({opacity: 1})
-         $('.cresearch').css({'height':66.66+'vh','width':66.66+'vw','float':"left"});
+        $('[id="squaredivnf"]').animate({opacity: 1})
+        $('.cresearch').css({'height':66.66+'vh','width':66.66+'vw','float':"left"});
          $('.oresearch').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.publications').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.teaching').css({'height':33.33+'vh','width':50+'vw'});
@@ -279,6 +248,7 @@ $(document).ready(function(){
     }
     else if (randominit==1){ 
          $('[id="squarediv"]').animate({opacity: 1})
+         $('[id="squaredivnf"]').animate({opacity: 1})
          $('.cresearch').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.oresearch').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.publications').css({'height':66.66+'vh','width':66.66+'vw'});
@@ -287,6 +257,7 @@ $(document).ready(function(){
     }
     else if (randominit==2){
          $('[id="squarediv"]').animate({opacity: 1})
+         $('[id="squaredivnf"]').animate({opacity: 1})
          $('.cresearch').css({'height':33.33+'vh','width':50+'vw',});
          $('.oresearch').css({'height':33.33+'vh','width':50+'vw'});
          $('.publications').css({'height':66.66+'vh','width':66.66+'vw','float':"left"});
@@ -295,6 +266,7 @@ $(document).ready(function(){
     }
     else if (randominit==3){ 
          $('[id="squarediv"]').animate({opacity: 1})
+         $('[id="squaredivnf"]').animate({opacity: 1})
          $('.cresearch').css({'height':66.66+'vh','width':66.66+'vw','float':"right"});
          $('.oresearch').css({'height':33.33+'vh','width':33.33+'vw'});
          $('.publications').css({'height':33.33+'vh','width':33.33+'vw'});
@@ -314,6 +286,6 @@ function randaxis(){
 }
 
 $('[id="squarediv"]').flip({
-    axis: 'rand',
+    axis: 'y',
     trigger: 'click'
 });

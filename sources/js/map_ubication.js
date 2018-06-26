@@ -1,11 +1,16 @@
-    var myLatlng = new google.maps.LatLng(-35.283848, 149.115027);
+    var myLatlng = new google.maps.LatLng(-35.283642, 149.114862);
     
     var contentString =  '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Research School of Earth Sciences</h1>'+
+        '<h2>Address:</h2>'+
         '<div id="bodyContent">'+
-        '<p>The study of Earth and marine sciences is fundamental to our understanding of the precious balance of life on Earth and how the Solar System in which we live was formed. Our focus is on both Earth processes and environmental science.</p>'+
+        '<p>Jaeger 7, RSES, 142 Mills Rd, Acton ACT 0200</p>'+
+        '<h1>Office:</h1>'+
+        '<p> J7.222 </p>' +
+        '<h1>Contact Details: </h1>'+
+        '<p> Email: josue.martinezmoreno@anu.edu.au </p>' +
+        '<p> Phone: 0426104364 </p>' +
         '</div>'+
         '</div>';
     
@@ -17,7 +22,7 @@
         });
         
         var mapOptions = {
-            zoom: 14,
+            zoom: 17,
             center: myLatlng,
             scrollwheel: false,
             navigationControl: true,

@@ -49,7 +49,8 @@
       front: '.front',
       back: '.back'
     };
-
+    
+    
     this.setting = $.extend(this.setting, options);
 
     if (typeof options.axis === 'string' && (options.axis.toLowerCase() === 'x' || options.axis.toLowerCase() === 'y' || options.axis.toLowerCase() === 'rand')) {
@@ -138,6 +139,7 @@
         "z-index": "1"
       });
       this.flipDone(callback);
+      $('.research').animate({opacity: 0})
     },
 
     unflip: function(callback) {
@@ -158,6 +160,7 @@
         "z-index": "0"
       });
       this.flipDone(callback);
+       $('.research').animate({opacity: 1})
     },
 
     getFrontElement: function() {
